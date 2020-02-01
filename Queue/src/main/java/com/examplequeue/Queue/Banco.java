@@ -13,6 +13,7 @@ public class Banco {
         Scanner input2 = new Scanner(System.in);
         Scanner input3 = new Scanner(System.in);
         Scanner input4 = new Scanner(System.in);
+        Scanner input5 = new Scanner(System.in);
 
         do {
             System.out.println("Elija entre las siguientes opciones:\n");
@@ -47,6 +48,7 @@ public class Banco {
                     break;
 
                 case 2:
+                    int salir = input5.nextInt();
                     q.dequeue();
             }
 

@@ -1,5 +1,6 @@
 package com.examplequeue.Queue;
 
+import java.util.Arrays;
 import java.util.Queue;
 
 
@@ -43,21 +44,46 @@ public class Operaciones{
                 cola = 0;
             }
             array[cola] = acola;
-            tamaño = tamaño++;
-            System.out.println(acola + "se ha agregado a la lista");
+            tamaño++;
+            System.out.println(acola + " se ha agregado a la lista");
         }
     }
 
     //dequeue
-    public void dequeue(){
-        if(Vacio()){
-            System.out.println("Espacios vacíos, no se puede eliminar/retirar.");
+    //public void dequeue(){
+      //  if(Vacio()){
+        //    System.out.println("Espacios vacíos, no se puede eliminar/retirar.");
+        //}
+        //else{
+          //  frente = frente++;
+            //if(frente == capacidad-1){
+              //  System.out.println(array[frente-1] + "se elimino");
+                //frente = 0;
+                //System.out.println(array[frente-1] + "se elimino");
+                //frente = 0;
+            //}
+            //tamaño--;
+            //int noencola = this.array[this.frente];
+            //this.frente = this.frente+1;
+            //this.tamaño = this.tamaño-1;
+     //   }
+    //}
+
+    public int dequeue(){
+        if (Vacio()){
+            System.out.println("No posee datos para eliminar.");
         }
         else{
-            int noencola = this.array[this.frente];
-            this.frente = this.frente+1;
-            this.tamaño = this.tamaño-1;
+            frente++;
+            array[frente]=-1;
+            //frente = 0;
+            tamaño--;
+            System.out.println(frente +" elemento eliminado.");
         }
+        return frente;
+    }
+
+    public void show(){
     }
 
     //base:https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/

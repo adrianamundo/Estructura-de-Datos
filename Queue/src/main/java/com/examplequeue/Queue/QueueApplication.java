@@ -1,4 +1,5 @@
 package com.examplequeue.Queue;
+import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,21 +13,32 @@ public class QueueApplication {
 	@RequestMapping("/enqueue")
 	public int tester(int x){
 		test.enqueue(x);
-		int y = 1;
+		int y = 10;
 		return y;
+
 	}
 
-	@RequestMapping("/deque")
-	public String tester2(){
+	@RequestMapping("/dequeue")
+	public int tester2(){
 		test.dequeue();
-		String dqued = "Eliminado.";
-		return dqued;
+		int b=12;
+		return b;
+
+
+	}
+
+	@RequestMapping("/show")
+	public String show(){
+		test.show();
+		String tester3 = Arrays.toString(test.array);
+		return tester3;
 	}
 
 
 	public static void main(String[] args) {
 		Operaciones test = new Operaciones(100);
-		test.enqueue(10);
+		test.enqueue(10 );
+
 
 
 		SpringApplication.run(QueueApplication.class, args);
