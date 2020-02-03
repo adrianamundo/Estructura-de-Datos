@@ -71,17 +71,19 @@ public class Operaciones{
 
     public int dequeue(){
         if (Vacio()){
-            System.out.println("No posee datos para eliminar.");
+           System.out.println("No posee datos para eliminar.");
         }
         else{
             frente++;
             array[frente]=-1;
-            //frente = 0;
+            frente = 0;
             tamaño--;
             System.out.println(frente +" elemento eliminado.");
         }
         return frente;
     }
+
+
 
     public void show(){
     }
