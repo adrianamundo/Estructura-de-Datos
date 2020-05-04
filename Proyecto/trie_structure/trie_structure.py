@@ -142,29 +142,27 @@ class Trie:
             for c in key:
                 idx3 = self.toIndex(c)
                 pC = pC.children[idx3]
-                return -1
+        
             
             pC.isEndOfWord = False
 
     def delete2(self, key):
-
         pC = self.root
         length = len(key)
-
-        for level in range(length):
-            index = self.toIndex(key[level])
-
-            if not pC:
-                print ("Word not found")
-                return -1
-            pC = pC.children[index]
-
-        if not pC:
-            print ("Word not found")
-            return -1
-        else:
-            pC.isEndofWord = False
-            return 0
+        idx = self.toIndex()
+        if len(key) == idx:
+            pC.isEndOfWord = False
+            return bool(pC.children)
+        
+        ch = key[idx]
+        if ch not in pC.children:
+            return True
+        flag = self.delete2(key, idx+1, pC.children[ch])
+        if flag:
+            return True
+        
+        key.children.pop(ch)
+        return bool(key.children) or key.isEndofWord
    
 def main(): 
   
@@ -192,9 +190,10 @@ def main():
     #t.delete("try")
     t.delete2("try")
     print("{} ---- {}".format("try",output[t.searchKey("try")]))
-   
-    
-    
+
+    #printing
+    print(keys)
+
 
   
 if __name__ == '__main__': 
